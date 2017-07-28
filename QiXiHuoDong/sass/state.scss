@@ -1,0 +1,397 @@
+@charset "UTF-8";
+
+@import 'sass-core/function.scss';
+
+//rem （以 设计图 为基准）
+@function px($n:0){
+  //1rem = 64px
+  //10rem = 640px
+  @return $n / 64 + rem;
+}
+@function bg-size($w,$h){
+  @return $w / 64 + rem $h / 64 + rem;
+}
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+
+  @at-root [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  @at-root [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+
+$imgUrl: '../img';
+$bgSize: bg-size(277,758);
+$bgBtn : bg-size(250,1401);
+
+html, body, a, b, p, ul, li, ol, table, thead, tbody, tfoot, tr, td, hr{
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "YouYuan", "幼圆", "Comic Sans MS", sans-serif, "Microsoft YaHei" , "宋体" , Arial, Verdana, Helvetica;
+  color: #ffffff;
+  @include gradient-vertical(#102454 0%, #321d6f 100%);
+}
+[class^="wrap-"]{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "YouYuan", "幼圆", "Comic Sans MS", sans-serif, "Microsoft YaHei" , "宋体" , Arial, Verdana, Helvetica;
+}
+.logo img{
+  width:px(283);
+  height:px(59);
+  margin-top:px(35);
+  margin-left:px(40);
+}
+.cell-text{
+  padding-top: px(20);
+  text-align: center;
+}
+.title{
+  width: px(276);
+  height: px(60);
+  margin: 0 auto;
+  background: url("#{$imgUrl}/all.png") 0 px(-67) no-repeat;
+  @include background-size($bgSize);
+}
+.msg{
+  margin: px(30) auto px(30);
+  font-size: px(30);
+  color: #ffffff;
+  font-size: px(40);
+  line-height:1.3;
+  font-family: "YouYuan", "幼圆", "Comic Sans MS", sans-serif;
+}
+/*挑战成功页面*/
+.body-success{
+  position: relative;
+}
+.wrap-success{
+  background: url("#{$imgUrl}/bg-success.jpg") center center no-repeat;
+  @include background-size(100% auto);
+  .msg{
+    margin: px(10) auto px(10);
+    font-size: px(30);
+    line-height:1.5;
+  }
+  .box-btn{
+    width: 82%;
+    margin: px(20) auto;
+    @include clearfix();
+  }
+  .btn-zsm{
+    display: block;
+    width: px(174);
+    height: px(56);
+    margin: 0 auto;
+    background: url("#{$imgUrl}/all.png") 0 px(-680) no-repeat;
+    @include background-size($bgSize);
+  }
+  .btn-jd{
+    width: px(210);
+    height: px(132);
+    float: left;
+    background: url("#{$imgUrl}/button.png") 0 px(-1153) no-repeat;
+    @include background-size($bgBtn);
+    &.show{
+      background: url("#{$imgUrl}/button.png") 0 px(-988) no-repeat;
+      @include background-size($bgBtn);
+    }
+  }
+  .btn-share{
+    width: px(210);
+    height: px(132);
+    float: right;
+    background: url("#{$imgUrl}/button.png") 0 px(-1280) no-repeat;
+    @include background-size($bgBtn);
+  }
+  .winner-list{
+    margin-right: 7.8125%;
+    width: 50%;
+    //height: px(160);
+    position: absolute;
+    right: 0;
+    bottom: px(26);
+    color: #63419b;
+    .text{
+      font-size: px(34);
+      font-family: '思源黑体 CN','Microsoft YaHei',"-apple-system", "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+      text-align: right;
+      text-shadow: 0 0 1px #fff,0 0 3px #fff,0 0 7px #fff,0 0 10px #fff;
+    }
+    hr{
+      border-bottom: 1px solid #63419b;
+      box-shadow: 0 0 2px 1px #fff;
+    }
+    .swiper-container{
+      margin-top: 5px;
+      height: 72px;
+      overflow: hidden;
+    }
+    li{
+      @include clearfix();
+      //height: 33.3333%;
+    }
+    .phone{
+      float: left;
+      line-height:1.5;
+    }
+    .present{
+      float: right;
+      line-height:1.5;
+    }
+  }
+}
+.alert-must{
+  display: none;
+  width: 220px;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  margin-left: -110px;
+  color: #ffffff;
+  font-size: px(28);
+  text-align: center;
+  background: rgba(0, 0, 0, .7);
+  @include border-radius(4px);
+}
+.pop{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  overflow: hidden;
+  background: rgba(0,0,0,.6);
+  text-align: center;
+
+}
+.pop-zsm{
+  z-index: 3;
+  img{
+    width: 76.5%;
+    margin-top: px(140);
+  }
+}
+.pop-tips{
+  z-index: 3;
+  .tips-box{
+    width: 84.8%;
+    position: relative;
+    margin: 0 auto;
+    padding-top: px(300);
+  }
+  img{
+    width: 100%;
+  }
+  .share{
+    width: px(205);
+    height: px(135);
+    position: absolute;
+    right: 10%;
+    top: px(595);
+    z-index:1;
+    background: url("#{$imgUrl}/button.png") 0 px(-520) no-repeat;
+    @include background-size($bgBtn);
+  }
+}
+.pop-share{
+  z-index: 4;
+  text-align: right;
+  img{
+    width: 78%;
+  }
+}
+
+/*很抱歉*/
+.wrap-sorry{
+  background: url("#{$imgUrl}/bg-gift.jpg") center center no-repeat;
+  @include background-size(100% auto);
+  .title{
+    width: px(240);
+    height: px(80);
+    margin: 0 auto;
+    background: url("#{$imgUrl}/all.png") 0 px(-583) no-repeat;
+    @include background-size($bgSize);
+  }
+  .msg{
+    margin: px(10) auto px(10);
+  }
+  .man{
+    text-align: center;
+    img{
+      width: 77%;
+      margin: px(30) auto px(30);
+    }
+  }
+}
+.cell-btn{
+  position: absolute;
+  left: 0;
+  bottom: px(23);
+  width: 90%;
+  margin: 0 5%;
+  @include clearfix();
+}
+.btn-back{
+  width: 45%;
+  height: px(151);
+  float: left;
+  background: url("#{$imgUrl}/button.png") px(10) px(25) no-repeat;
+  @include background-size($bgBtn);
+}
+.btn-download{
+  width: 45%;
+  height: px(151);
+  float: right;
+  background: url("#{$imgUrl}/button.png") px(10) px(-151) no-repeat;
+  @include background-size($bgBtn);
+}
+.btn-link{
+  width: 45%;
+  height: px(151);
+  float: right;
+  background: url("#{$imgUrl}/button.png") px(10) px(-352) no-repeat;
+  @include background-size($bgBtn);
+}
+
+/*次数用完*/
+.wrap-run-out{
+  background: url("#{$imgUrl}/bg-gift.jpg") center center no-repeat;
+  @include background-size(100% auto);
+  .title{
+    width: px(240);
+    height: px(80);
+    margin: 0 auto;
+    background: url("#{$imgUrl}/all.png") 0 px(-140) no-repeat;
+    @include background-size($bgSize);
+  }
+  .msg{
+    margin: px(10) auto px(10);
+  }
+  .man{
+    text-align: center;
+    img{
+      width: 77%;
+      margin: px(30) auto px(30);
+    }
+  }
+}
+
+/*好可惜*/
+.wrap-fail{
+  background: url("#{$imgUrl}/bg-gift.jpg") center center no-repeat;
+  @include background-size(100% auto);
+  .title{
+    width: px(240);
+    height: px(76);
+    margin: 0 auto;
+    background: url("#{$imgUrl}/all.png") 0 px(-500) no-repeat;
+    @include background-size($bgSize);
+  }
+  .msg{
+    margin: px(10) auto px(10);
+  }
+  .man{
+    text-align: center;
+    img{
+      width: 58%;
+      margin: px(30) auto 0;
+    }
+  }
+  .point{
+    font-size: px(30);
+    span{
+      color: #ffd800;
+    }
+  }
+  .btn-back{
+    background: url("#{$imgUrl}/button.png") px(10) px(-655) no-repeat;
+    @include background-size($bgBtn);
+  }
+  .btn-download{
+    background: url("#{$imgUrl}/button.png") px(10) px(-810) no-repeat;
+    @include background-size($bgBtn);
+  }
+}
+
+/*活动结束*/
+.wrap-over{
+  background:#99043a url("#{$imgUrl}/over.jpg") center center no-repeat;
+  @include background-size(100% auto);
+  p{
+    width: 100%;
+    font-size: px(40);
+    line-height: 1.3;
+    text-align: center;
+    position: absolute;
+    top: px(780);
+    left: 0px;
+  }
+}
+
+/*中奖*/
+.wrap-win{
+  background: url("#{$imgUrl}/bg-gift.jpg") center center no-repeat;
+  @include background-size(100% auto);
+  .title{
+    width: px(234);
+    height: px(78);
+    margin: 0 auto;
+    background: url("#{$imgUrl}/all.png") 0 px(10) no-repeat;
+    @include background-size($bgSize);
+  }
+  .msg{
+    font-size: px(48);
+    margin: px(10) auto px(10);
+  }
+  .tip{
+    font-size: px(28);
+  }
+  .man{
+    text-align: center;
+    img{
+      width: 95%;
+      margin: px(30) auto 0;
+    }
+  }
+}
+
+/*iphone4 尺寸调整*/
+@include iphone4{
+  .wrap-success{
+    background: url("#{$imgUrl}/bg-success.jpg") center center no-repeat;
+    @include background-size(100% auto);
+  }
+  .pop-zsm{
+    img{
+      margin-top: px(100);
+    }
+  }
+  .wrap-sorry, .wrap-run-out, .wrap-fail, .wrap-win{
+    background: url("#{$imgUrl}/bg-gift.jpg") center center no-repeat;
+    @include background-size(100% auto);
+  }
+  .wrap-over{
+    background: url("#{$imgUrl}/over.jpg") center top no-repeat;
+    @include background-size(100% auto);
+    p{
+      top: px(790);
+    }
+  }
+}

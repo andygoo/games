@@ -1,0 +1,23 @@
+@import "/_variables.less";
+@import "/_mixins.less";
+
+.btn(@height:40px) {
+  .border-radius(4px);
+  color: #fff;
+  font-size:24px;
+  text-align:center;
+  background-color:#e6565b;
+  border-width:0;
+  height:@height;
+  line-height:@height;
+  text-decoration:none;
+  text-shadow:none;
+  display:block;
+}
+.absolute-center(@mar-left,@mar-top){
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: @mar-left;
+  margin-top: @mar-top;
+}

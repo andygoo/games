@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="css/game.css"/>
+    <title>test</title>
+</head>
+<body>
+<div id="debug-info"></div>
+<canvas id="test"></canvas>
+<script type="text/javascript" src="libs/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="js/AppConfig.js"></script>
+<script type="text/javascript">
+    function PubSub() {
+        this.handlers = {};
+    }
+    PubSub.prototype = {
+        // 订阅事件
+        on: function(eventType,handler){
+            var self = this;
+            if(!(eventType in self.handlers)) {
+                self.handlers[eventType] = [];
+            }
+            self.handlers[eventType].push(handler);
+            return this;
+        },
+        // 触发事件(发布事件)
+        emit: function(eventType){
+            var self = this;
+            var handlerArgs = Array.prototype.slice.call(arguments,1);
+            for(var i = 0; i < self.handlers[eventType].length; i++) {
+                self.handlers[eventType][i].apply(self,handlerArgs);
+            }
+            return self;
+        }
+    };
+
+    var pubsub = new PubSub();
+
+    pubsub.on('A',function(data){
+
+        console.log(1 + data);  // 执行第一个回调业务函数
+
+    });
+
+    pubsub.on('A',function(data){
+
+        console.log(2 + data); // 执行第二个业务回调函数
+
+    });
+
+    // 触发事件A
+
+    pubsub.emit('A',"我是参数");
+</script>
+<script type="text/javascript">
+    var  canvas=document.getElementById("test");
+    var ctx=canvas.getContext("2d");
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    /**
+     * 画个6边形
+     * @param ctx 画布上下文
+     * @param r 半径,也就是6边形的边长
+     * @param x 中心点x坐标
+     * @param y 中心点y坐标
+     * @param rotate 旋转角度
+     */
+    function drawStart6(ctx, r, x, y,rotate){
+        ctx.save(); // save the default state
+        ctx.translate(x,y);
+        ctx.rotate(rotate);
+        ctx.beginPath();
+        for(var i = 0; i < 6; i++){
+            ctx.lineTo(Math.cos((i*60)/180*Math.PI)*r,
+
+                Math.sin((i*60)/180*Math.PI)*r);
+        }
+
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore(); // restore to the default state
+    }
+    drawStart6(ctx,100,250,250,0);
+    drawStart6(ctx,100,500,500,0);
+</script>
+</body>
+</html>

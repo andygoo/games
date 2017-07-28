@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link type="text/css" rel="stylesheet" href="css/game.css"/>
+    <title>抓住方块</title>
+    <style type="text/css">
+        .btn-group{
+            text-align: center;
+        }
+        .btn{
+            display: inline-block;
+            width:50px;
+            height:50px;
+            padding:5px;
+            border-radius: 4px;
+            line-height: 40px;
+            color:#fff;
+            text-align: center;
+        }
+        #debug-tool{
+            position: absolute;
+            top:0;
+            width:100%;
+        }
+        #start-btn{
+            background-color: #008800;
+        }
+        #pause-btn{
+            background-color: #E9DC51;
+        }
+        #stop-btn{
+            background-color: #f93c1c;
+        }
+        #restart-btn{
+            background-color: #008800;
+        }
+    </style>
+</head>
+<body>
+<div id="debug-tool">
+    <div id="debug-info"></div>
+    <div class="btn-group">
+        <span id="start-btn" class="btn">开始</span>
+        <span id="pause-btn" class="btn">暂停</span>
+        <span id="stop-btn" class="btn">停止</span>
+        <span id="restart-btn" class="btn">重启</span>
+    </div>
+</div>
+<canvas id="canvas"></canvas>
+<!--独立的文件 start-->
+<!--<script type="text/javascript" src="libs/viewpoint/viewport.js"></script>-->
+<script type="text/javascript" src="libs/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="js/Util.js"></script>
+<!--独立的文件 end-->
+<!--游戏自身文件 start-->
+<script type="text/javascript" src="js/AppConfig.js"></script>
+<script type="text/javascript" src="js/Touch.js"></script>
+<script type="text/javascript" src="js/entity/Grid.js"></script>
+<script type="text/javascript" src="js/entity/Audio.js"></script>
+<script type="text/javascript" src="js/entity/Game.js"></script>
+<script type="text/javascript" src="js/GameEffect.js"></script>
+<script type="text/javascript" src="js/Test.js"></script>
+<script type="text/javascript" src="js/App.js"></script>
+<!--游戏自身文件 end-->
+</body>
+</html>

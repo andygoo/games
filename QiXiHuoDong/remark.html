@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>广州农商银行-七夕活动-登记</title>
+    <link rel="stylesheet" href="css/form.css">
+    <script src="js/flex.js"></script>
+    <script src="js/jquery-2.2.3.min.js"></script>
+</head>
+<body class="remark-list">
+<section class="logo">
+    <img src="img/bank-logo.png" alt="广州农商银行">
+</section>
+    <section class="wrapper">
+        <section class="title"><img src="img/title-remark.png" ></section>
+        <section class="form-box">
+            <div class="text-outer">
+                <input type="number" class="input-text input-text-1" maxlength="11" placeholder="请输入手机号">
+            </div>
+            <div class="text-outer">
+                <input type="text" class="input-text input-text-2" placeholder="请输入图形验证码">
+                <img src="img/auth-code.png" alt="验证码" class="auth btn-text">
+            </div>
+            <div class="text-outer relative">
+                <input type="number" class="input-text input-text-3" placeholder="请输入短信验证码">
+                <button class="btn-text getcode">获&nbsp;取</button>
+                <!--<button class="btn-text getcode getcode-bright">获&nbsp;取</button>-->
+            </div>
+
+        </section>
+        <section class="submit-box">
+            <a href="javascript:void(0);" class="go-btn"></a>
+            <!--<a href="javascript:void(0);" class="go-btn disclick"></a>-->
+        </section>
+    </section>
+<!--注册提示弹窗-->
+<section class="layer-tips">
+    <div class="register-tips">
+        <a href="javascript:void(0);" class="register-tips-btn"></a>
+    </div>
+</section>
+<!--错误提示弹窗-->
+<section class="alert-must"><span>手机号错误，请重新输入！</span></section>
+
+<script type="text/javascript">
+    $(function () {
+
+        var ua = navigator.userAgent.toLowerCase();
+        if (/android/.test(ua)) {
+            $(".text-outer input").on('focus', function() {
+                var topH =$(this).offset().top;
+                $("html,body").animate({scrollTop:topH-100},300);
+            });
+        }
+
+        if($(window).height()>$(document.body).height()){
+            $(document.body).height($(window).height()+1);
+        }
+
+        $(".go-btn").click(function(){
+            $(".layer-tips").fadeIn(100);
+        });
+        $(".layer-tips").click(function(){
+            $(".layer-tips").fadeOut(10);
+        });
+
+        $(".form-box .input-text").each(function(index,item){
+            $(item)[0].oninput = function(){
+                disclick();
+            }
+        });
+
+        function disclick(){
+            if($(".input-text-1").val()!="" && $(".input-text-2").val()!=""){
+                $(".getcode").addClass("getcode-bright");
+            }else{
+                $(".getcode").removeClass("getcode-bright");
+            }
+            if($(".input-text-1").val()!="" && $(".input-text-2").val()!="" && $(".input-text-3").val()!=""){
+                $(".go-btn").addClass("disclick");
+            }else{
+                $(".go-btn").removeClass("disclick");
+            }
+        }
+
+        /*错误提示弹窗*/
+        $('.go-btn').click(function(){
+                $('.alert-must').fadeIn();
+                setTimeout(function(){
+                    $('.alert-must').fadeOut();
+                },2000);
+        });
+
+
+
+    });
+</script>
+</body>
+</html>

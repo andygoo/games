@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <title>广州农商银行-七夕活动-注册</title>
+    <link rel="stylesheet" href="css/form.css">
+    <script src="js/flex.js"></script>
+    <script src="js/jquery-2.2.3.min.js"></script>
+</head>
+<body class="remark-list register-list">
+<section class="logo">
+    <img src="img/bank-logo.png" alt="广州农商银行">
+</section>
+    <section class="wrapper">
+        <section class="title"><img src="img/title-register.png" ></section>
+        <section class="form-box">
+            <div class="text-outer">
+                <input type="tel" maxlength="11" class="input-text input-text-1" placeholder="请输入手机号">
+            </div>
+            <div class="text-outer">
+                <input type="text" maxlength="4" class="input-text input-text-2" placeholder="请输入图形验证码">
+                <img src="img/auth-code.png" alt="验证码" class="auth btn-text">
+            </div>
+            <div class="text-outer relative">
+                <input type="text" maxlength="4" class=" input-text input-text-3" placeholder="请输入短信验证码">
+                <button class="btn-text getcode">获&nbsp;取</button>
+                <!--<button class="btn-text getcode getcode-bright">获&nbsp;取</button>-->
+            </div>
+            <div class="text-outer">
+                <input type="password" maxlength="16" class="input-text input-text-4" placeholder="请设置6-16位数字字母密码">
+                <button class="btn-text"><i class="eyes-close"></i></button>
+            </div>
+            <div class="text-outer agreement">
+                <label for="checkbox1" class="checkbox-label" onselectstart="return false;">
+                <input type="checkbox" id="checkbox1" class="checkbox" checked/>
+                <span class="ckbox-model deal"></span>同意</label>
+                <a href="javascript:void(0);" target="_blank" class="link">《平台服务协议》</a>
+            </div>
+        </section>
+        <section class="submit-box">
+            <a href="javascript:void(0);" class="register-btn"></a>
+            <!--<a href="javascript:void(0);" class="register-btn disclick"></a>-->
+        </section>
+    </section>
+
+<!--错误提示弹窗-->
+<section class="alert-must"><span>手机号错误，请重新输入！</span></section>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var ua = navigator.userAgent.toLowerCase();
+            if (/android/.test(ua)) {
+                $(".text-outer input").on('focus', function() {
+                    var topH =$(this).offset().top;
+                    $("html,body").animate({scrollTop:topH-100},300);
+                });
+            }
+
+            $(".eyes-close").on('click', function() {
+                if($(this).hasClass("eyes-open")){
+                    $(this).removeClass("eyes-open");
+                    $(this).parents(".text-outer").find("input").attr("type","password");
+                }else{
+                    $(this).addClass("eyes-open");
+                    $(this).parents(".text-outer").find("input").attr("type","text");
+                }
+            });
+
+            if($(window).height()>$(document.body).height()){
+                $(document.body).height($(window).height());
+            }
+
+            // checkbox 模拟 - (同意《投融资服务协议》)
+            $('.checkbox-label').click(function () {
+                if($(this).find("input").prop("checked") ){
+                    $('.ckbox-model').addClass('deal');
+                }else{
+                    $('.ckbox-model').removeClass('deal');
+                }
+                disclick2();
+            });
+
+            $(".form-box .input-text").each(function(index,item){
+                $(item)[0].oninput = function(){
+                    disclick2();
+                }
+            });
+
+            function disclick2(){
+                if($(".input-text-1").val()!="" && $(".input-text-2").val()!=""){
+                    $(".getcode").addClass("getcode-bright");
+                }else{
+                    $(".getcode").removeClass("getcode-bright");
+                }
+                if($(".input-text-1").val()!="" && $(".input-text-2").val()!="" && $(".input-text-3").val()!="" && $(".input-text-4").val()!="" && $('.checkbox').prop("checked")){
+                    $(".register-btn").addClass("disclick");
+                }else{
+                    $(".register-btn").removeClass("disclick");
+                }
+            }
+
+            /*错误提示弹窗*/
+            $('.register-btn').click(function(){
+                $('.alert-must').fadeIn();
+                setTimeout(function(){
+                    $('.alert-must').fadeOut();
+                },2000);
+            });
+
+        });
+    </script>
+</body>
+</html>

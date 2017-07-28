@@ -1,0 +1,377 @@
+@charset "utf-8";
+
+@function px($n){
+  @return $n / 64 + rem;
+}
+
+html, body {
+  background: #eee;
+  font-family: "-apple-system", "Microsoft YaHei", "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight: transparent;
+  -webkit-text-size-adjust: none;
+}
+
+body, div, h1, h2, h3, h4, h5, html, li, ol, p, ul {
+  margin: 0;
+  padding: 0; }
+
+a, a:active, a:link, a:visited {
+  text-decoration: none;
+  outline: 0; }
+
+img {
+  border: 0; }
+
+div, span {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+}
+
+
+html, body {
+  width: 100%;
+  background: url('../img/default-bg.jpg') center center no-repeat;
+  background-size: auto 100%;
+}
+
+
+/*排行榜*/
+body.rank-list {
+
+  .logo img{
+    width:px(283);
+    height:px(59);
+    margin-top:px(35);
+    margin-left:px(40);
+  }
+
+  .title img{
+    display: block;
+    width:px(171);
+    height:px(52);
+    margin:0 auto;
+    margin-top:px(30);
+  }
+  .list-box{
+    padding:px(30) 0;
+    width:96%;
+    margin:0 auto;
+  }
+
+  .list-box ol {
+    counter-reset: section;
+    list-style-type: none;
+    li{
+      margin:px(0) 0;
+      line-height:px(61);
+      font-size:px(30);
+      text-align: center;
+      color: #fff!important;
+    }
+    li:before {
+      counter-increment: section;
+      content: counter(section);
+      display: inline-block;
+      height: px(50);
+      width:px(50);
+      text-align: center;
+      color: #fff;
+      font-family: "-apple-system", "Microsoft YaHei", "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+    }
+    li:nth-child(1):before {
+      content: '';
+      height: px(61);
+      width:px(50);
+      vertical-align: middle;
+      background: url('../img/No1.png');
+      background-size: 100%;
+    }
+    li:nth-child(2):before {
+      content: '';
+      height: px(61);
+      width:px(50);
+      vertical-align: middle;
+      background: url('../img/No2.png');
+      background-size: 100%;
+    }
+    li:nth-child(3):before {
+      content: '';
+      height: px(61);
+      width:px(50);
+      vertical-align: middle;
+      background: url('../img/No3.png');
+      background-size: 100%;
+    }
+    li span:nth-child(1){
+      display: inline-block;
+      margin:0 px(65);
+      text-align:left;
+      width:px(178);
+      font-family: "-apple-system", "Microsoft YaHei", "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+    }
+    li span:nth-child(2){
+      display: inline-block;
+      width:px(100);
+      text-align: right;
+      font-family: "-apple-system", "Microsoft YaHei", "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+    }
+
+  }
+  .submit-box{
+    height:px(137*0.9);
+    .rank-btn{
+      display:block;
+      width:px(227*0.9);
+      height:px(137*0.9);
+      margin:0 auto;
+      background: url("../img/rank-btn.png") no-repeat;
+      background-size: 100% 100%;
+    }
+   }
+
+}
+
+
+/*登记*/
+body.remark-list {
+
+  .logo img {
+    width: px(283);
+    height: px(59);
+    margin-top: px(35);
+    margin-left: px(40);
+  }
+  .title img{
+    display: block;
+    width:px(387);
+    height:px(115);
+    margin:0 auto;
+    margin-top:px(80);
+  }
+
+  .form-box {
+    margin: px(80) auto;
+    width: 100%;
+    .text-outer{
+      width:px(543);
+      margin:0 auto;
+      position:relative;
+      .input-text-1,.input-text-2,.input-text-3,.input-text-4{
+        height:px(60);
+        line-height: px(60);
+        border:1px solid #fff;
+        border-radius:px(10);
+        background-color:rgba(255,255,255,0.1);
+        font-size:px(30);
+        color:#fff;
+        padding-left:px(10);
+        margin-bottom:px(30);
+        box-shadow: 5px 5px 10px #241A60;
+        font-family: "-apple-system", "Microsoft YaHei", "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+      }
+      .input-text-1{
+        width:px(525);
+
+      }
+      .input-text-2{
+        width:px(410);
+        vertical-align: top;
+      }
+      .auth{
+        width:px(110);
+        height:px(62);
+        margin-left:px(0);
+        vertical-align: middle;
+        box-shadow: 5px 5px 10px #241A60;
+      }
+      .input-text-3{
+        width:px(430);
+        vertical-align: top;
+      }
+      .input-text-4{
+        width:px(430);
+        vertical-align: top;
+      }
+      .relative{
+        position:relative;
+      }
+      .getcode{
+        position: absolute;
+        right:px(3);
+        background-color:#B0B1B2;
+        width:px(111);
+        height:px(63);
+        font-size:px(30);
+        color:#382F8C;
+        border-radius: 0 px(10) px(10) 0;
+        box-shadow: 5px 5px 10px #241A60;
+        font-family: Microsoft YaHei;
+      }
+      .getcode-bright{
+        background-color:#FFD800;
+      }
+    }
+  }
+  .submit-box{
+    margin:px(50) auto 0;
+    height:px(180);
+    .go-btn{
+      display:block;
+      width:px(256);
+      height:px(162);
+      margin:0 auto;
+      background: url("../img/go-gray-btn.png") no-repeat;
+      background-size: 100% 100%;
+      &.disclick{
+        background: url("../img/go-btn.png") no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+
+  }
+
+  .layer-tips{
+    display: none;
+    //width: 100%;
+    //height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    .register-tips{
+      position: absolute;
+      width:px(525);
+      height:px(353);
+      margin-left:px(-262);
+      margin-top:px(-176);
+      left:50%;
+      top:50%;
+      background: url("../img/register-tips.png") no-repeat;
+      background-size: 100% 100%;
+      .register-tips-btn{
+        position: absolute;
+        bottom:px(-20);
+        right:px(30);
+        width:px(197);
+        height:px(124);
+        background: url("../img/register-tips-btn.png") no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+}
+
+
+/*注册*/
+.register-list{
+  .title img{
+    display: block;
+    width:px(242)!important;
+    height:px(68)!important;
+    margin:0 auto;
+    margin-top:px(35);
+  }
+  .btn-text{
+    position: absolute;
+    right:px(3);
+    top:px(0);
+    background-color:#FFD800;
+    width:px(111);
+    height:px(63);
+    font-size:px(30);
+    color:#382F8C;
+    border:none;
+    border-radius: 0 px(10) px(10) 0;
+    box-shadow: 5px 5px 10px #241A60;
+    .eyes-close{
+      z-index: 10;
+      position: absolute;
+      left:px(23);
+      top:px(20);
+      display:inline-block;
+      width:px(63);
+      height:px(30);
+      background: url("../img/eyes-close.png") no-repeat;
+      background-size: 100% 100%;
+    }
+    .eyes-open{
+      left:px(26);
+      top:px(17);
+      width:px(56);
+      height:px(31);
+      background: url("../img/eyes-open.png") no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+  .agreement{
+    font-size:px(30);
+    .checkbox-label{
+      color:#fff;
+      display: inline-block;
+      vertical-align: top;
+      position:relative;
+      overflow: hidden;
+    }
+    .checkbox{
+      position:absolute;
+      left:-100px;
+    }
+    .ckbox-model.deal {
+      background-image: url(../img/ckbg1.png);
+    }
+    .ckbox-model {
+      display: inline-block;
+      vertical-align:top;
+      margin-right:px(10);
+      width: px(38);
+      height: px(38);
+      background-image: url(../img/ckbg2.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      margin-bottom: px(3);
+    }
+    .link {
+      color: #FFE204;
+      vertical-align: top;
+    }
+
+  }
+  .register-btn{
+    display:block;
+    width:px(256);
+    height:px(162);
+    margin:0 auto;
+    background: url("../img/register-gray-btn.png") no-repeat;
+    background-size: 100% 100%;
+    &.disclick{
+      background: url("../img/register-btn.png") no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+}
+
+.alert-must{
+  display: none;
+  position: absolute;
+  bottom: 2rem;
+  width:100%;
+  text-align: center;
+  span{
+    color: #ffffff;
+    font-size: px(28);
+    border-radius:(4px);
+    background: rgba(0, 0, 0, .7);
+    padding: 10px;
+  }
+}

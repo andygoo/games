@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>挑战成功</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/state.css?v=20160702">
+    <script src="js/zepto.min.js"></script>
+    <script src="js/flex.js"></script>
+    <script src="js/swiper.min.js"></script>
+</head>
+<body class="body-success">
+    <div class="wrap-success">
+        <div class="logo">
+            <img src="img/bank-logo.png" alt="logo">
+        </div>
+        <section class="cell-text">
+            <p class="title"></p>
+            <p class="msg">
+                高收益专属项目码：****** <br>
+                8月4日~10日中午12点准时开抢
+            </p>
+            <div>
+                <a href="javascript:void(0);" class="btn-zsm"></a>
+            </div>
+            <div class="box-btn">
+                <a href="javascript:void(0);" class="btn-jd jd-gray"></a>
+                <!--<a href="javascript://" class="btn-jd show"></a>-->
+                <a href="javascript:void(0);" class="btn-share"></a>
+            </div>
+        </section>
+        <section class="winner-list">
+            <p class="text">中奖名单</p>
+            <hr>
+            <div class="swiper-container">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <p class="phone">137****111</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****222</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****333</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****4444</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****5555</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****6666</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****7777</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****8888</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****9999</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                    <li class="swiper-slide">
+                        <p class="phone">137****aaaa</p>
+                        <p class="present">京东E卡</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="pop pop-zsm">
+        <img src="img/pop-zsm.png" alt="专属码说明">
+    </div>
+
+    <div class="pop pop-share">
+        <img src="img/pop-share.png" alt="分享">
+    </div>
+
+    <div class="alert-must">分享后才能抢京东E卡哦！</div>
+    <script type="text/javascript">
+        $(function(){
+            var init_swiper, len = $('.swiper-slide').length;
+            if(len > 0){
+                switch (len){
+                    case 1:case 2:case 3:
+                        init_swiper = {
+                            direction: 'vertical',
+                            autoHeight: true,
+                            slidesPerView: 3
+                        };
+                        break;
+                    default:
+                        init_swiper = {
+                            direction: 'vertical',
+                            slidesPerView: 3,
+                            autoplay: 1000,
+                            loop: true,
+                            autoplayDisableOnInteraction: false
+                        };
+                        break;
+                }
+                var mySwiper = new Swiper ('.swiper-container', init_swiper);
+            }
+
+            $('.btn-zsm').click(function(){
+                $('.pop-zsm').css({'display':'block'});
+                $('.pop-zsm').click(function(){
+                    $(this).css({'display':'none'});
+                });
+            });
+
+            $('.btn-share').click(function(){
+                $('.pop-share').css({'display':'block'});
+                setTimeout(function(){
+                    $('.pop-share').css({'display':'none'});
+                },6000);
+                setTimeout(function(){
+                    $('.btn-jd').removeClass('jd-gray');
+                    $('.btn-jd').addClass('show');
+                },3000);
+                return false;
+            });
+
+            window.alertbox = "";
+            $('.btn-jd').click(function(){
+                if($(this).hasClass('jd-gray')){
+                    $('.alert-must').fadeIn();
+                    if(alertbox){
+                        clearTimeout(alertbox);
+                    }
+                    alertbox = setTimeout(function(){
+                        $('.alert-must').fadeOut();
+                    },2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

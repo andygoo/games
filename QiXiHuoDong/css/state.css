@@ -1,0 +1,102 @@
+@charset "UTF-8";
+.wrap-success .box-btn, .wrap-success .winner-list li, .cell-btn { *zoom: 1; }
+.wrap-success .box-btn:before, .wrap-success .winner-list li:before, .cell-btn:before, .wrap-success .box-btn:after, .wrap-success .winner-list li:after, .cell-btn:after { content: ""; display: table; }
+.wrap-success .box-btn:after, .wrap-success .winner-list li:after, .cell-btn:after { clear: both; }
+
+html, body, a, b, p, ul, li, ol, table, thead, tbody, tfoot, tr, td, hr { margin: 0px; padding: 0px; border: 0px; }
+
+html, body { width: 100%; height: 100%; overflow: hidden; font-family: "YouYuan", "幼圆", "Comic Sans MS", sans-serif, "Microsoft YaHei" , "宋体" , Arial, Verdana, Helvetica; color: #ffffff; background-image: -webkit-linear-gradient(top, #102454 0%, #321d6f 100%); background-image: -o-linear-gradient(top, #102454 0%, #321d6f 100%); background-image: linear-gradient(to bottom, #102454 0%, #321d6f 100%); }
+
+[class^="wrap-"] { position: absolute; top: 0; width: 100%; height: 100%; overflow: hidden; font-family: "YouYuan", "幼圆", "Comic Sans MS", sans-serif, "Microsoft YaHei" , "宋体" , Arial, Verdana, Helvetica; }
+
+.logo img { width: 4.42188rem; height: 0.92188rem; margin-top: 0.54688rem; margin-left: 0.625rem; }
+
+.cell-text { padding-top: 0.3125rem; text-align: center; }
+
+.title { width: 4.3125rem; height: 0.9375rem; margin: 0 auto; background: url("../img/all.png") 0 -1.04688rem no-repeat; -webkit-background-size: 4.32813rem 11.84375rem; background-size: 4.32813rem 11.84375rem; }
+
+.msg { margin: 0.46875rem auto 0.46875rem; font-size: 0.46875rem; color: #ffffff; font-size: 0.625rem; line-height: 1.3; font-family: "YouYuan", "幼圆", "Comic Sans MS", sans-serif; }
+
+/*挑战成功页面*/
+.body-success { position: relative; }
+
+.wrap-success { background: url("../img/bg-success.jpg") center center no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+.wrap-success .msg { margin: 0.15625rem auto 0.15625rem; font-size: 0.46875rem; line-height: 1.5; }
+.wrap-success .box-btn { width: 82%; margin: 0.3125rem auto; }
+.wrap-success .btn-zsm { display: block; width: 2.71875rem; height: 0.875rem; margin: 0 auto; background: url("../img/all.png") 0 -10.625rem no-repeat; -webkit-background-size: 4.32813rem 11.84375rem; background-size: 4.32813rem 11.84375rem; }
+.wrap-success .btn-jd { width: 3.28125rem; height: 2.0625rem; float: left; background: url("../img/button.png") 0 -18.01563rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+.wrap-success .btn-jd.show { background: url("../img/button.png") 0 -15.4375rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+.wrap-success .btn-share { width: 3.28125rem; height: 2.0625rem; float: right; background: url("../img/button.png") 0 -20rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+.wrap-success .winner-list { margin-right: 7.8125%; width: 50%; position: absolute; right: 0; bottom: 0.40625rem; color: #63419b; }
+.wrap-success .winner-list .text { font-size: 0.53125rem; font-family: '思源黑体 CN','Microsoft YaHei',"-apple-system", "Helvetica Neue", Roboto, "Segoe UI", sans-serif; text-align: right; text-shadow: 0 0 1px #fff,0 0 3px #fff,0 0 7px #fff,0 0 10px #fff; }
+.wrap-success .winner-list hr { border-bottom: 1px solid #63419b; box-shadow: 0 0 2px 1px #fff; }
+.wrap-success .winner-list .swiper-container { margin-top: 5px; height: 72px; overflow: hidden; }
+.wrap-success .winner-list .phone { float: left; line-height: 1.5; }
+.wrap-success .winner-list .present { float: right; line-height: 1.5; }
+
+.alert-must { display: none; width: 220px; padding: 10px 0; position: absolute; bottom: 2rem; left: 50%; margin-left: -110px; color: #ffffff; font-size: 0.4375rem; text-align: center; background: rgba(0, 0, 0, 0.7); border-radius: 4px; }
+
+.pop { display: none; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 2; overflow: hidden; background: rgba(0, 0, 0, 0.6); text-align: center; }
+
+.pop-zsm { z-index: 3; }
+.pop-zsm img { width: 76.5%; margin-top: 2.1875rem; }
+
+.pop-tips { z-index: 3; }
+.pop-tips .tips-box { width: 84.8%; position: relative; margin: 0 auto; padding-top: 4.6875rem; }
+.pop-tips img { width: 100%; }
+.pop-tips .share { width: 3.20313rem; height: 2.10938rem; position: absolute; right: 10%; top: 9.29688rem; z-index: 1; background: url("../img/button.png") 0 -8.125rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+
+.pop-share { z-index: 4; text-align: right; }
+.pop-share img { width: 78%; }
+
+/*很抱歉*/
+.wrap-sorry { background: url("../img/bg-gift.jpg") center center no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+.wrap-sorry .title { width: 3.75rem; height: 1.25rem; margin: 0 auto; background: url("../img/all.png") 0 -9.10938rem no-repeat; -webkit-background-size: 4.32813rem 11.84375rem; background-size: 4.32813rem 11.84375rem; }
+.wrap-sorry .msg { margin: 0.15625rem auto 0.15625rem; }
+.wrap-sorry .man { text-align: center; }
+.wrap-sorry .man img { width: 77%; margin: 0.46875rem auto 0.46875rem; }
+
+.cell-btn { position: absolute; left: 0; bottom: 0.35938rem; width: 90%; margin: 0 5%; }
+
+.btn-back { width: 45%; height: 2.35938rem; float: left; background: url("../img/button.png") 0.15625rem 0.39063rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+
+.btn-download { width: 45%; height: 2.35938rem; float: right; background: url("../img/button.png") 0.15625rem -2.35938rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+
+.btn-link { width: 45%; height: 2.35938rem; float: right; background: url("../img/button.png") 0.15625rem -5.5rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+
+/*次数用完*/
+.wrap-run-out { background: url("../img/bg-gift.jpg") center center no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+.wrap-run-out .title { width: 3.75rem; height: 1.25rem; margin: 0 auto; background: url("../img/all.png") 0 -2.1875rem no-repeat; -webkit-background-size: 4.32813rem 11.84375rem; background-size: 4.32813rem 11.84375rem; }
+.wrap-run-out .msg { margin: 0.15625rem auto 0.15625rem; }
+.wrap-run-out .man { text-align: center; }
+.wrap-run-out .man img { width: 77%; margin: 0.46875rem auto 0.46875rem; }
+
+/*好可惜*/
+.wrap-fail { background: url("../img/bg-gift.jpg") center center no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+.wrap-fail .title { width: 3.75rem; height: 1.1875rem; margin: 0 auto; background: url("../img/all.png") 0 -7.8125rem no-repeat; -webkit-background-size: 4.32813rem 11.84375rem; background-size: 4.32813rem 11.84375rem; }
+.wrap-fail .msg { margin: 0.15625rem auto 0.15625rem; }
+.wrap-fail .man { text-align: center; }
+.wrap-fail .man img { width: 58%; margin: 0.46875rem auto 0; }
+.wrap-fail .point { font-size: 0.46875rem; }
+.wrap-fail .point span { color: #ffd800; }
+.wrap-fail .btn-back { background: url("../img/button.png") 0.15625rem -10.23438rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+.wrap-fail .btn-download { background: url("../img/button.png") 0.15625rem -12.65625rem no-repeat; -webkit-background-size: 3.90625rem 21.89063rem; background-size: 3.90625rem 21.89063rem; }
+
+/*活动结束*/
+.wrap-over { background: #99043a url("../img/over.jpg") center center no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+.wrap-over p { width: 100%; font-size: 0.625rem; line-height: 1.3; text-align: center; position: absolute; top: 12.1875rem; left: 0px; }
+
+/*中奖*/
+.wrap-win { background: url("../img/bg-gift.jpg") center center no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+.wrap-win .title { width: 3.65625rem; height: 1.21875rem; margin: 0 auto; background: url("../img/all.png") 0 0.15625rem no-repeat; -webkit-background-size: 4.32813rem 11.84375rem; background-size: 4.32813rem 11.84375rem; }
+.wrap-win .msg { font-size: 0.75rem; margin: 0.15625rem auto 0.15625rem; }
+.wrap-win .tip { font-size: 0.4375rem; }
+.wrap-win .man { text-align: center; }
+.wrap-win .man img { width: 95%; margin: 0.46875rem auto 0; }
+
+/*iphone4 尺寸调整*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2 / 3) { .wrap-success { background: url("../img/bg-success.jpg") center center no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+  .pop-zsm img { margin-top: 1.5625rem; }
+  .wrap-sorry, .wrap-run-out, .wrap-fail, .wrap-win { background: url("../img/bg-gift.jpg") center center no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+  .wrap-over { background: url("../img/over.jpg") center top no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; }
+  .wrap-over p { top: 12.34375rem; } }
