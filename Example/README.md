@@ -83,7 +83,6 @@
 
     - Hilo
 
-        >>>
         Hilo，一套HTML5跨终端的互动游戏解决方案开源啦！。Hilo支持了多届淘宝&天猫狂欢城等双十一大型和日常营销活动。内核极简，提供包括DOM，Canvas，Flash，WebGL等多种渲染方案，满足全终端和性能要求。
 
         ![image](https://diycode.b0.upaiyun.com/photo/2016/0ff5391a01fcea6884b7a1b6309a4446.png)
