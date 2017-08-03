@@ -11,23 +11,11 @@ LevelDirector.prototype.startLevel = function () {
     lzb_afterEffects = new Array();
 
     lzb_cardShow = new CardShow("gift-tips");
-    if (this.myCurrentLevel == 1) {
-        lzb_background = new Background("card-01");
-        lzb_waterAfter = new Background("water-01", 4);
-        lzb_people = new People(this.myEOLScore);
-        lzb_waterBefore = new Background("water-011", 5);
-        lzb_countDown = new CountDown();
-    } else if (this.myCurrentLevel == 2) {
-        lzb_background = new Background("card-02");
-        lzb_waterAfter = new Background("water-02", 4);
-        lzb_people = new People(this.myEOLScore);
-        lzb_waterBefore = new Background("water-022", 5);
-    } else if (this.myCurrentLevel == 3) {
-        lzb_background = new Background("card-03");
-        lzb_waterAfter = new Background("water-03", 4);
-        lzb_people = new People(this.myEOLScore);
-        lzb_waterBefore = new Background("water-033", 5);
-    }
+    lzb_background = new Background("card-01");
+    lzb_waterAfter = new Background("water-01", 4);
+    lzb_people = new People(this.myEOLScore);
+    lzb_waterBefore = new Background("water-011", 5);
+    lzb_countDown = new CountDown();
     lzb_cloud = new Background("cloud", 2, true);
 
     lzb_renderInterval = setInterval(renderLoop, 1000 / 24);
@@ -43,7 +31,8 @@ LevelDirector.prototype.gameEvents = function () {
 
         //游戏为什么会暂停了
         if (this.myCurrentLevel == 3 && this.myEOLScore >= this.passScore[this.myCurrentLevel - 1]) {
-            ajax({
+            console.info("挑战失败，弹出弹层1");
+            AjaxTask.ajax({
                 method: 'post',
                 url: getScoreHref,
                 data: {score: this.myEOLScore},
@@ -62,11 +51,7 @@ LevelDirector.prototype.gameEvents = function () {
                 }
             })
         } else if (this.myEOLScore >= this.passScore[this.myCurrentLevel - 1]) {
-            lzb_layer = new Layer("succeed-" + (this.myCurrentLevel + 1), "btn-next");
-            lzb_layer.render();
-        } else {
-            // lzb_layer = new Layer("failure", "btn-over", "btn-again");
-            // lzb_layer.render();
+            console.info("挑战成功，弹出弹层2");
         }
     }
 }

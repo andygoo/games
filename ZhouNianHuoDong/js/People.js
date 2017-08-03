@@ -43,17 +43,21 @@ People.prototype.render = function () {
             if (lzb_projectiles[i].myName == "good-01") {
                 this.myScore += 50;
                 var ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "50");
+                console.info("碰到蛋糕");
             } else if (lzb_projectiles[i].myName == "good-02") {
                 this.myScore += 10;
                 var ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "10");
+                console.info("碰到绿色礼物");
             } else if (lzb_projectiles[i].myName == "good-03") {
                 if (this.myScore != 0) {
                     this.myScore -= 10;
                     var ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "00");
                 }
+                console.info("碰到炸弹");
             } else if (lzb_projectiles[i].myName == "good-04") {
                 this.myScore += 20;
                 var ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "20");
+                console.info("碰到红色礼物");
             }
             lzb_afterEffects.push(ae);
 

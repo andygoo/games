@@ -46,7 +46,20 @@ var lzb_Mcard03;
 var lzb_Mfailure;
 var lzb_Msucceed;
 var lzb_musicArray = new Array();
-
+var giftCounter={
+    green:{
+        name:"绿色礼物",
+        count:0
+    },
+    red:{
+        name:"红色礼物",
+        count:0
+    },
+    bomb:{
+        name:"炸弹",
+        count:0
+    }
+};
 
 function gameStart() {
     lzb_context.beginPath();
@@ -77,8 +90,8 @@ function renderLoop() {
     if (lzb_paused) return;
 
     lzb_background.render();
-    lzb_waterAfter.render();
-    lzb_cloud.render();
+    // lzb_waterAfter.render();
+    // lzb_cloud.render();
     lzb_cardShow.render();
 
     document.addEventListener("touchstart", ev_touch, false);
@@ -109,8 +122,8 @@ function renderLoop() {
     delete lzb_afterEffects;
     lzb_afterEffects = remainingAfterEffects;
 
-    lzb_waterBefore.render();
-    lzb_countDown.render();
+    // lzb_waterBefore.render();
+    // lzb_countDown.render();
 }
 /*计时器*/
 function clockLoop() {
