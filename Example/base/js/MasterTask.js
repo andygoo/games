@@ -11,9 +11,14 @@ var MasterTask=(function(){
     var renderTask=function(){};
     var EventListener=function(){
         //使用订阅/发布模式
+        document.addEventListener("touchstart", function(event){
+            EventHub.emit("stage","开始监听画布事件",event);
+        }, false);
 
         //整个画布的触摸动作
-        EventHub.on("stage",function(v){
+        EventHub.on("stage",function(v,event){
+            console.log(v);
+            //根据位置、步骤、流程判断该触发那个订阅事件
 
         });
 
