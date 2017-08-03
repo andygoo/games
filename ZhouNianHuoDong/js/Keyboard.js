@@ -97,7 +97,7 @@ function ev_btn(btn, btnX, btnY, btnW, btnH) {
                         lzb_context.drawImage(btnObj, coordinates[i + 1], coordinates[i + 2], coordinates[i + 3], coordinates[i + 4]);
                     }
                     coordinates = [];
-                    main(1);
+                    // main(1);
                 }
                 if (coordinates[i] == "all") {
                     coordinates = [];

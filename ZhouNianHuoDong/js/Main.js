@@ -1,4 +1,3 @@
-/***Author:々守朢 星塵ヅ  2016-05-31***/
 var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
 var isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 var goRankHref = "../duanwu/goRank.do";
@@ -48,12 +47,6 @@ var lzb_Mfailure;
 var lzb_Msucceed;
 var lzb_musicArray = new Array();
 
-/*随机位置生成*/
-function randomNum(Min, Max) {
-    var Range = Max - Min;
-    var Rand = Math.random();
-    return (Min + Math.round(Rand * Range));
-}
 
 function gameStart() {
     lzb_context.beginPath();
@@ -87,7 +80,6 @@ function renderLoop() {
     lzb_waterAfter.render();
     lzb_cloud.render();
     lzb_cardShow.render();
-    lzb_cardTips.render();
 
     document.addEventListener("touchstart", ev_touch, false);
 
@@ -103,7 +95,7 @@ function renderLoop() {
 
     lzb_people.render();
 
-    /*水花*/
+    /*碰撞效果*/
     var remainingAfterEffects = new Array();
     for (var i = 0; i < lzb_afterEffects.length; ++i) {
         try {
@@ -133,56 +125,4 @@ function pause() {
     if (lzb_paused == null) lzb_paused = false;
     lzb_paused = !lzb_paused;
     if (lzb_paused) console.log("游戏暂停");
-}
-
-function ajax(obj) {
-    var xhr = (function () {
-        if (typeof XMLHttpRequest != 'undefined') {
-            return new XMLHttpRequest();
-        } else if (typeof ActiveXObject != 'undefined') {
-            var version = ['MSXML2.XMLHttp.6.0', 'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp'];
-            for (var i = 0; i < version.length; i++) {
-                try {
-                    return new ActiveXObject(version[i]);
-                } catch (e) {
-                    //跳过
-                }
-            }
-        } else {
-            throw new Error('您的系统或浏览器不支持XHR对象！');
-        }
-    })();
-    obj.url = obj.url + '?rand=' + Math.random();
-    obj.data = (function (data) {
-        var arr = [];
-        for (var i in data) {
-            arr.push(encodeURIComponent(i) + '=' + encodeURIComponent(data[i]));
-        }
-        return arr.join('&');
-    })(obj.data);
-    if (obj.method === 'get') obj.url += obj.url.indexOf('?') == -1 ? '?' + obj.data : '&' + obj.data;
-    if (obj.async === true) {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-                callback();
-            }
-        };
-    }
-    xhr.open(obj.method, obj.url, obj.async);
-    if (obj.method === 'post') {
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send(obj.data);
-    } else {
-        xhr.send(null);
-    }
-    if (obj.async === false) {
-        callback();
-    }
-    function callback() {
-        if (xhr.status == 200) {
-            obj.success(xhr.responseText);			//回调传递参数
-        } else {
-            alert('获取数据错误！错误代号：' + xhr.status + '，错误信息：' + xhr.statusText);
-        }
-    }
 }

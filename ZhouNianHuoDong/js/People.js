@@ -59,8 +59,8 @@ People.prototype.render = function () {
 
             delete lzb_projectiles[i];
         } else if (Collision(0, lzb_canvas.height - lzb_waterBefore_h, lzb_canvas.width, lzb_canvas.height, Math.round(lzb_projectiles[i].myX), Math.round(lzb_projectiles[i].myY), Math.round(lzb_projectiles[i].myX + lzb_projectiles[i].myWidth), Math.round((lzb_projectiles[i].myY + lzb_projectiles[i].myHeight) * 0.9))) {
-            var ae = new AfterEffect("spray", Math.round(lzb_projectiles[i].myX), Math.round(lzb_projectiles[i].myY));
-            lzb_afterEffects.push(ae);
+            // var ae = new AfterEffect("spray", Math.round(lzb_projectiles[i].myX), Math.round(lzb_projectiles[i].myY));
+            // lzb_afterEffects.push(ae);
         } else {
             remainingProjectiles.push(lzb_projectiles[i]);
         }

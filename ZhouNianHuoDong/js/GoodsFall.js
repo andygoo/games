@@ -1,4 +1,3 @@
-/***Author:々守朢 星塵ヅ  2016-05-31***/
 function GoodsFall(weapon) {
     this.myGood = document.getElementById(weapon);
     this.myName = weapon;
@@ -6,7 +5,7 @@ function GoodsFall(weapon) {
     this.myFrameCounter = 0;
     this.myWidth = this.myGood.width * lzb_prop;
     this.myHeight = this.myGood.height * lzb_prop;
-    this.myX = randomNum(0, lzb_canvas.width - this.myWidth);
+    this.myX = Util.randomNum(0, lzb_canvas.width - this.myWidth);
     this.myY = -this.myHeight;
 }
 

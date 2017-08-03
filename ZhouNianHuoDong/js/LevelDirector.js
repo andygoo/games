@@ -10,34 +10,29 @@ LevelDirector.prototype.startLevel = function () {
     lzb_projectiles = new Array();
     lzb_afterEffects = new Array();
 
+    lzb_cardShow = new CardShow("gift-tips");
     if (this.myCurrentLevel == 1) {
         lzb_background = new Background("card-01");
         lzb_waterAfter = new Background("water-01", 4);
         lzb_people = new People(this.myEOLScore);
         lzb_waterBefore = new Background("water-011", 5);
-        lzb_cardShow = new CardShow("tips-01");
-        lzb_cardTips = new CardShow("pass-01", "tr");
         lzb_countDown = new CountDown();
     } else if (this.myCurrentLevel == 2) {
         lzb_background = new Background("card-02");
         lzb_waterAfter = new Background("water-02", 4);
         lzb_people = new People(this.myEOLScore);
         lzb_waterBefore = new Background("water-022", 5);
-        lzb_cardShow = new CardShow("tips-02");
-        lzb_cardTips = new CardShow("pass-02", "tr");
     } else if (this.myCurrentLevel == 3) {
         lzb_background = new Background("card-03");
         lzb_waterAfter = new Background("water-03", 4);
         lzb_people = new People(this.myEOLScore);
         lzb_waterBefore = new Background("water-033", 5);
-        lzb_cardShow = new CardShow("tips-03");
-        lzb_cardTips = new CardShow("pass-03", "tr");
     }
     lzb_cloud = new Background("cloud", 2, true);
 
     lzb_renderInterval = setInterval(renderLoop, 1000 / 24);
     lzb_clockInterval = setInterval(clockLoop, 100);
-}
+};
 
 LevelDirector.prototype.gameEvents = function () {
     this.myEOLScore = lzb_people.myScore;
@@ -46,6 +41,7 @@ LevelDirector.prototype.gameEvents = function () {
         clearInterval(lzb_renderInterval);
         clearInterval(lzb_clockInterval);
 
+        //游戏为什么会暂停了
         if (this.myCurrentLevel == 3 && this.myEOLScore >= this.passScore[this.myCurrentLevel - 1]) {
             ajax({
                 method: 'post',
@@ -69,8 +65,8 @@ LevelDirector.prototype.gameEvents = function () {
             lzb_layer = new Layer("succeed-" + (this.myCurrentLevel + 1), "btn-next");
             lzb_layer.render();
         } else {
-            lzb_layer = new Layer("failure", "btn-over", "btn-again");
-            lzb_layer.render();
+            // lzb_layer = new Layer("failure", "btn-over", "btn-again");
+            // lzb_layer.render();
         }
     }
 }

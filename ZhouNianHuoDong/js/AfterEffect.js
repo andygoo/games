@@ -40,14 +40,14 @@ function AfterEffect(id, x, y, scorenum) {
 AfterEffect.prototype.render = function () {
     if (this.myName == "spray") {
         lzb_context.drawImage(this.myFrames[this.myFrameCounter],
-            this.myX - (this.myWidth >> 1), Math.round(lzb_canvas.height - this.myHeight - lzb_waterBefore_h / 2),
-            this.myWidth, this.myHeight);
+        this.myX - (this.myWidth >> 1), Math.round(lzb_canvas.height - this.myHeight - lzb_waterBefore_h / 2),
+        this.myWidth, this.myHeight);
     }
 
     if (this.myName == "score") {
         lzb_context.drawImage(this.myFrames[this.myFrameCounter],
-            this.myX, this.myY,
-            this.myWidth, this.myHeight);
+        this.myX, this.myY,
+        this.myWidth, this.myHeight);
     }
 
     this.myFrameCounter++;

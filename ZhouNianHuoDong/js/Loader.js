@@ -11,7 +11,7 @@ window.onload = function () {
             }
 
             loading = [];
-            loadImg = ["game-bg.jpg", "loader-01.png", "loader-02.png", "game.png", "btn-about.png", "btn-rank.png", "btn-again.png", "btn-again-hover.png", "btn-next.png", "btn-next-hover.png", "btn-over.png", "btn-over-hover.png", "btn-start.png", "btn-start-hover.png", "failure.png", "good-01.png", "good-02.png", "good-03.png", "good-04.png", "layer-about.png", "unit.png", "num0.png", "num1.png", "num2.png", "num3.png", "num4.png", "num5.png", "num6.png", "num7.png", "num8.png", "num9.png", "score50.png", "score20.png", "score10.png", "score00.png", "opacity.png", "pass-01.png", "pass-02.png", "pass-03.png", "people.png", "spray1-1.png", "spray1-2.png", "spray1-3.png", "spray1-4.png", "spray2-1.png", "spray2-2.png", "spray2-3.png", "spray2-4.png", "spray3-1.png", "spray3-2.png", "spray3-3.png", "spray3-4.png", "succeed-2.png", "succeed-3.png", "timer-01.png", "timer-02.png", "tips-01.png", "tips-02.png", "tips-03.png", "card-01.jpg", "card-02.jpg", "card-03.jpg", "cloud.png", "water-01.png", "water-02.png", "water-03.png", "water-011.png", "water-022.png", "water-033.png"];
+            loadImg = ["game-bg.jpg", "loader-01.png", "loader-02.png", "game.png", "btn-about.png", "btn-rank.png", "btn-again.png", "btn-again-hover.png", "btn-next.png", "btn-next-hover.png", "btn-over.png", "btn-over-hover.png", "btn-start.png", "btn-start-hover.png", "failure.png", "good-01.png", "good-02.png", "good-03.png", "good-04.png", "layer-about.png", "unit.png", "num0.png", "num1.png", "num2.png", "num3.png", "num4.png", "num5.png", "num6.png", "num7.png", "num8.png", "num9.png", "score50.png", "score20.png", "score10.png", "score00.png", "opacity.png", "pass-01.png", "pass-02.png", "pass-03.png", "people.png", "spray1-1.png", "spray1-2.png", "spray1-3.png", "spray1-4.png", "spray2-1.png", "spray2-2.png", "spray2-3.png", "spray2-4.png", "spray3-1.png", "spray3-2.png", "spray3-3.png", "spray3-4.png", "succeed-2.png", "succeed-3.png", "timer-01.png", "timer-02.png","gift-tips.png","card-01.jpg", "card-02.jpg", "card-03.jpg", "cloud.png", "water-01.png", "water-02.png", "water-03.png", "water-011.png", "water-022.png", "water-033.png"];
 
             for (var i = 0; i <= loadImg.length - 1; i++) {
                 loading[loading.length] = lzb_imgSrc + loadImg[i] + '?_=' + (new Date).getTime();
@@ -53,7 +53,8 @@ window.onload = function () {
             if (s.total == s.load + s.error) {
                 lzb_score_w = Math.round(document.getElementById("unit").width * lzb_prop);
                 lzb_score_h = Math.round(document.getElementById("unit").height * lzb_prop);
-                gameStart();
+                // gameStart();
+                main(1);
             }
         }
     });
