@@ -7,6 +7,7 @@ var lzb_imgSrc = "img/game/";
 var lzb_canvas;
 var lzb_context;
 var lzb_paused;
+var lzb_stop=false;
 var lzb_layer;
 var lzb_renderInterval;
 var lzb_clockInterval;
@@ -46,12 +47,12 @@ var lzb_Mcard03;
 var lzb_Mfailure;
 var lzb_Msucceed;
 var lzb_musicArray = new Array();
-var giftCounter={
-    green:{
+var falloutCounter={
+    gift:{
         name:"绿色礼物",
         count:0
     },
-    red:{
+    cake:{
         name:"红色礼物",
         count:0
     },
@@ -116,7 +117,7 @@ function renderLoop() {
                 remainingAfterEffects.push(lzb_afterEffects[i]);
             } else delete lzb_afterEffects[i];
         } catch (err) {
-            console.log(222);
+            console.log(err);
         }
     }
     delete lzb_afterEffects;
@@ -124,13 +125,13 @@ function renderLoop() {
 
     // lzb_waterBefore.render();
     // lzb_countDown.render();
+    lzb_levelDirector.gameEvents();
 }
 /*计时器*/
 function clockLoop() {
     if (lzb_paused) return;
-
     lzb_levelDirector.myClock += 100;
-    lzb_levelDirector.gameEvents();
+
 }
 
 /*暂停渲染*/

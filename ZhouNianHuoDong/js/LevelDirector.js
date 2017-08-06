@@ -24,34 +24,30 @@ LevelDirector.prototype.startLevel = function () {
 
 LevelDirector.prototype.gameEvents = function () {
     this.myEOLScore = lzb_people.myScore;
-
-    if (this.myClock == lzb_timer) {
+        //游戏为什么会暂停了
+    if(lzb_stop){
         clearInterval(lzb_renderInterval);
         clearInterval(lzb_clockInterval);
-
-        //游戏为什么会暂停了
-        if (this.myCurrentLevel == 3 && this.myEOLScore >= this.passScore[this.myCurrentLevel - 1]) {
-            console.info("挑战失败，弹出弹层1");
-            AjaxTask.ajax({
-                method: 'post',
-                url: getScoreHref,
-                data: {score: this.myEOLScore},
-                async: true,
-                success: function (data) {
-                    if (data) {
-                        window.location.href = goAwardHref + Math.random();
-                    } else {
-                        alert("分数提交失败，请查看网络是否有链接");
-                        gameStart();
-                    }
-                },
-                error: function (data) {
+        console.info("挑战失败，弹出弹层1");
+        AjaxTask.ajax({
+            method: 'post',
+            url: getScoreHref,
+            data: {score: this.myEOLScore},
+            async: true,
+            success: function (data) {
+                if (data) {
+                    window.location.href = goAwardHref + Math.random();
+                } else {
                     alert("分数提交失败，请查看网络是否有链接");
                     gameStart();
                 }
-            })
-        } else if (this.myEOLScore >= this.passScore[this.myCurrentLevel - 1]) {
-            console.info("挑战成功，弹出弹层2");
-        }
+            },
+            error: function (data) {
+                alert("分数提交失败，请查看网络是否有链接");
+                gameStart();
+            }
+        })
+    } else if (this.myEOLScore >= this.passScore[this.myCurrentLevel - 1]) {
+        console.info("挑战成功，弹出弹层2");
     }
-}
+};
