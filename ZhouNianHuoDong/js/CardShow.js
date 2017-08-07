@@ -19,9 +19,17 @@ function CardShow(element, location) {
         this.myY = Math.round(lzb_canvas.height * 0.98 - this.myWidth);
 
         ev_btn(element, this.myX, this.myY, this.myWidth, this.myHeight);
-    } else {
-        this.myX = Math.round(lzb_canvas.width * 0.01);
-        this.myY = lzb_canvas.height * 0.02;
+    } else if(location=="dl"){
+        this.myX = Math.round(lzb_canvas.width * 0.25);
+        this.myY = lzb_canvas.height * 0.86;
+    }
+    else if(location=="dr"){
+        this.myX = Math.round(lzb_canvas.width * 0.65);
+        this.myY = lzb_canvas.height * 0.86;
+    }
+    else{
+        this.myX = Math.round(lzb_canvas.width * 0.09);
+        this.myY = lzb_canvas.height * 0.03;
     }
 }
 

@@ -24,6 +24,8 @@ var lzb_cloud;
 var lzb_musicShow;
 var lzb_cardShow;
 var lzb_cardTips;
+var lzb_handleLeft;
+var lzb_handleRight;
 var lzb_countDown;
 
 var lzb_people;
@@ -39,7 +41,9 @@ var lzb_kind = ["good-01", "good-02", "good-03", "good-04"];
 var lzb_projectiles;
 var lzb_levelDirector;
 var lzb_passScore = [500, 1200, 2500];
-
+var lzb_speed=24;
+var lzb_speedTimer=0;
+var lzb_speedCounter=0;
 var lzb_Mprepare;
 var lzb_Mcard01;
 var lzb_Mcard02;
@@ -94,6 +98,8 @@ function renderLoop() {
     // lzb_waterAfter.render();
     // lzb_cloud.render();
     lzb_cardShow.render();
+    lzb_handleLeft.render();
+    lzb_handleRight.render();
 
     document.addEventListener("touchstart", ev_touch, false);
 
@@ -131,7 +137,6 @@ function renderLoop() {
 function clockLoop() {
     if (lzb_paused) return;
     lzb_levelDirector.myClock += 100;
-
 }
 
 /*暂停渲染*/

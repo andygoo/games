@@ -44,25 +44,25 @@ People.prototype.render = function () {
             if (lzb_projectiles[i].myName == "good-01") {
                 this.myScore += 50;
                 ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "50");
-                console.info("碰到蛋糕");
+                // console.info("碰到蛋糕");
                 falloutCounter.cake.count++;
             } else if (lzb_projectiles[i].myName == "good-02") {
                 this.myScore += 10;
                 ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "10");
-                console.info("碰到绿色礼物");
+                // console.info("碰到绿色礼物");
                 falloutCounter.gift.count++;
             } else if (lzb_projectiles[i].myName == "good-03") {
                 if (this.myScore != 0) {
                     this.myScore -= 10;
                     ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "00");
                 }
-                console.info("碰到炸弹");
+                // console.info("碰到炸弹");
                 falloutCounter.bomb.count++;
                 lzb_stop=true;
             } else if (lzb_projectiles[i].myName == "good-04") {
                 this.myScore += 20;
                 ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "20");
-                console.info("碰到红色礼物");
+                // console.info("碰到红色礼物");
                 falloutCounter.gift.count++;
             }
             lzb_afterEffects.push(ae);
@@ -84,7 +84,7 @@ People.prototype.render = function () {
 People.prototype.renderStatus = function () {
     var sunit = document.getElementById("unit");
     var myScore = String(this.myScore);
-    var myY = Math.round(lzb_canvas.height * 0.02);
+    var myY = Math.round(lzb_canvas.height * 0.03);
 
     if (myScore.length == 1) {
         myScore = "0000" + myScore;
@@ -96,13 +96,14 @@ People.prototype.renderStatus = function () {
         myScore = "0" + myScore;
     }
 
-    lzb_context.drawImage(sunit, (lzb_canvas.width - (myScore.length + 1) * lzb_score_w) / 2, myY, lzb_score_w, lzb_score_h);
     for (var i = 0; i < myScore.length; i++) {
         var obj = document.getElementById("num" + myScore[i]);
-        var objY = (lzb_canvas.width - (myScore.length + 1) * lzb_score_w) / 2 + lzb_score_w * (i + 1);
+        var objX = (lzb_canvas.width - (myScore.length + 4) * lzb_score_w) / 2 + lzb_score_w * (i + 1);
 
-        lzb_context.drawImage(obj, objY, myY, lzb_score_w, lzb_score_h);
+        lzb_context.drawImage(obj, objX, myY, lzb_score_w, lzb_score_h);
     }
+
+    lzb_context.drawImage(sunit, objX+lzb_score_w, myY, lzb_score_w, lzb_score_h);
 }
 
 People.prototype.left = function (engaged) {
