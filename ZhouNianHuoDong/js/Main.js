@@ -1,9 +1,5 @@
 var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
 var isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-var goRankHref = "../duanwu/goRank.do";
-var getScoreHref = "../duanwu/getScore.do";
-var goAwardHref = "../duanwu/goAward.do";
-var lzb_imgSrc = "img/game/";
 var lzb_canvas;
 var lzb_context;
 var lzb_paused;
@@ -53,11 +49,11 @@ var lzb_Msucceed;
 var lzb_musicArray = new Array();
 var falloutCounter={
     gift:{
-        name:"绿色礼物",
+        name:"礼物",
         count:0
     },
     cake:{
-        name:"红色礼物",
+        name:"蛋糕",
         count:0
     },
     bomb:{
@@ -65,6 +61,10 @@ var falloutCounter={
         count:0
     }
 };
+
+var falloutTotal=0;
+var b64Value;
+var cryptValue;
 
 function gameStart() {
     lzb_context.beginPath();

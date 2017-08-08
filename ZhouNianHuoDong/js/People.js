@@ -42,26 +42,26 @@ People.prototype.render = function () {
     for (var i = 0; i < lzb_projectiles.length; ++i) {
         if (Collision(this.myX - (this.myWidth >> 1), this.myY, this.myX + (this.myWidth >> 1), this.myY + this.myHeight, Math.round(lzb_projectiles[i].myX), Math.round(lzb_projectiles[i].myY), Math.round((lzb_projectiles[i].myX + lzb_projectiles[i].myWidth) * 0.8), Math.round((lzb_projectiles[i].myY + lzb_projectiles[i].myHeight) * 0.78))) {
             if (lzb_projectiles[i].myName == "good-01") {
-                this.myScore += 50;
-                ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "50");
+                this.myScore += 1;
+                ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "Plus");
                 // console.info("碰到蛋糕");
                 falloutCounter.cake.count++;
             } else if (lzb_projectiles[i].myName == "good-02") {
-                this.myScore += 10;
-                ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "10");
+                this.myScore += 1;
+                ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "Plus");
                 // console.info("碰到绿色礼物");
                 falloutCounter.gift.count++;
             } else if (lzb_projectiles[i].myName == "good-03") {
                 if (this.myScore != 0) {
-                    this.myScore -= 10;
-                    ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "00");
+                    this.myScore -= 1;
+                    ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "Minus");
                 }
                 // console.info("碰到炸弹");
                 falloutCounter.bomb.count++;
                 lzb_stop=true;
             } else if (lzb_projectiles[i].myName == "good-04") {
-                this.myScore += 20;
-                ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "20");
+                this.myScore += 1;
+                ae = new AfterEffect("score", Math.round(lzb_projectiles[i].myX), this.myY, "Plus");
                 // console.info("碰到红色礼物");
                 falloutCounter.gift.count++;
             }

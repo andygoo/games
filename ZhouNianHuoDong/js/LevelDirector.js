@@ -45,27 +45,53 @@ LevelDirector.prototype.gameEvents = function () {
         lzb_renderInterval = setInterval(renderLoop, 1000 / lzb_speed);
     }
     //游戏为什么会暂停了
+    falloutTotal=falloutCounter.gift.count+falloutCounter.cake.count;
     if(lzb_stop){
         clearInterval(lzb_renderInterval);
         clearInterval(lzb_clockInterval);
-        console.info("挑战结束，弹出弹层");
-        AjaxTask.ajax({
-            method: 'post',
-            url: getScoreHref,
-            data: {score: this.myEOLScore},
-            async: true,
-            success: function (data) {
-                if (data) {
-                    window.location.href = goAwardHref + Math.random();
-                } else {
+        // var b = new Base64();
+        // b64Value = b.encode(""+falloutTotal+"");
+        // cryptValue= hex_md5(b64Value+"K74YQXF1RNDPSR5G0815X18H08733OID");
+        // console.log(falloutTotal);
+        // console.log(b64Value);
+        // console.log(cryptValue);
+
+        if(falloutTotal>=30){
+            //挑战成功
+            AjaxTask.ajax({
+                method: 'get',
+                url: getScoreHref+"returnURL=index&number="+falloutTotal+"&crypt="+cryptValue,
+                success: function (data) {
+                    if (data) {
+                        window.location.href = goAwardHref + Math.random();
+                    } else {
+                        alert("分数提交失败，请查看网络是否有链接");
+                        main(1);
+                    }
+                },
+                error: function (data) {
                     alert("分数提交失败，请查看网络是否有链接");
-                    gameStart();
+                    main(1);
                 }
-            },
-            error: function (data) {
-                alert("分数提交失败，请查看网络是否有链接");
-                gameStart();
-            }
-        })
+            });
+        }else{
+            //挑战失败
+            AjaxTask.ajax({
+                method: 'get',
+                url: getScoreHref+"returnURL=index&number="+falloutTotal+"&crypt="+cryptValue,
+                success: function (data) {
+                    if (data) {
+                        window.location.href = goAwardHref + Math.random();
+                    } else {
+                        alert("分数提交失败，请查看网络是否有链接");
+                        main(1);
+                    }
+                },
+                error: function (data) {
+                    alert("分数提交失败，请查看网络是否有链接");
+                    main(1);
+                }
+            });
+        }
     }
 };
