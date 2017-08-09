@@ -11,3 +11,7 @@
 - [七夕活动](./QiXiHuoDong/index.html) 七夕牛朗织女鹊桥相会活动
 
 - [抓住方块](./ZhuaZhuFangKuai/index.html) 新版俄罗斯方块
+
+- [手划抢礼物](./ZhouNianHuoDong/index.html) 手指左划、右划撞击下落物
+
+- [七夕红包](./QiXiHongBao/index.html) 随意位置点击打开下落红包
