@@ -1,0 +1,225 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="description" content="PPmoney理财厦门银行存管上线，提供多元化投资理财产品,手机理财和智能互联网金融服务,投资理财用户可通过平台进行定期理财,智惠系列等投资,产品包括月月增,省心宝,灵活宝，PPmoney理财专注于小额分散的消费金融投资理财平台,严格风控,安全透明。" />
+<meta name="keywords" content="PPmoney,PPmoney理财,手机理财,银行存管,小额分散,消费金融 ,投资理财,互联网理财,网络理财" />
+<link rel="icon" href="https://cms.ppmoney.com/favicon.ico">
+<meta name="format-detection" content="telephone=no, email=no"/>
+<meta name="format-detection" content="address=no" />
+<meta name="format-detection" content="date=no" />
+<meta name="screen-orientation" content="portrait"> <!--//uc强制竖屏-->
+
+        <title>PPmoney理财</title>
+        <link rel="stylesheet" type="text/css" href="https://m-static.ppmoney.com/Content/css/weixin-alert.css">
+        
+    <link rel="stylesheet" href="https://special.ppmoney.com/PPyog2/h5-common/client/static/lib/pp-mobile/pp-mobile-1.4.0_29f2f88.css">
+<link rel="stylesheet" href="https://special.ppmoney.com/PPyog2/h5-common/client/static/scss/common_c922bd7.css">
+<script src="https://special.ppmoney.com/PPyog2/h5-common/client/static/lib/handlebars-v3.0.0_ec2c5c8.js"></script>
+<script src="https://special.ppmoney.com/lib/compatible.js"></script>
+<script src="https://special.ppmoney.com/lib/zepto.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://special.ppmoney.com/PPyog2/h5-grabMoney/client/widget/pkgall_ab522c8.css" /></head>
+
+    <body >
+
+        
+    <div class="header"></div>
+
+<div class="download-top" id="download-top">
+    <div class="btn-group">
+        <div class="btn-left" data-open-app-page data-pk="['双蛋活动','顶部导航','打开APP']">打开APP</div>
+        <div class="btn-right" data-download-app data-pk="['双蛋活动','顶部导航','下载APP']">下载APP</div>
+    </div>
+    <div class="close-icon" data-close-download-top data-pk="['双蛋活动','顶部导航','关闭']"></div>
+</div>
+
+
+
+        
+    <!-- 初始化loader -->
+    <div class="page" id="start-loader">
+        <div id="start-loading" class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <p>正在初始化</p>
+    </div>
+    <!-- 初始化loader end -->
+    
+    <!-- 开始页面 start-->
+    <div class="page " id="start-page">
+        <div class="pp-logo" data-imgscale="0.24"></div>
+        <div class="btn-area">
+            <button class="btn btn-default btn-block " id="start-btn"> 进入游戏<span class="icon-play_circle_outline"></span></button>
+            <p class="rule" id="rule"><span class="icon-info_outline mr5"></span>游戏规则</p>
+        </div>
+        <div class="chest">
+            <div class="chest-bg" data-imgscale="0.136"></div>
+            <div class="ground" data-imgscale="1.22">
+                <div class="ground-bg"></div>
+                <div class="p-06-bg" data-imgscale="0.773">
+                    <div class="small-p p-06" ></div>
+                </div>
+                <div class="small-p p-05" data-imgscale="1.21"></div>
+                <div class="small-p text-03" data-imgscale="0.687"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 开始页面 end -->
+    <!-- 加载页面 start-->
+    <div class="page myslide-from-top my-hide" id="load-page">
+        <div class="top-bg" data-imgscale="0.3">
+            <div class="clock" data-imgscale="1"></div>
+            <div class="progress"></div>
+            <span class="score-example">￥0</span>
+        </div>
+        <div class="bottom-bg">
+            <div class="bottom-back"  data-imgscale="0.572"></div>
+            <div class="bottom-chest" data-imgscale="0.487"></div>
+            <div class="small-p p-01" data-imgscale="1.1"></div>
+            <div class="small-p p-02" data-imgscale="1.19"></div>
+            <div class="bottom-text" data-imgscale="0.125"></div>
+        </div>
+        <div class="load-bg chest" data-imgscale="0.612">
+            <div class="coupon positive-one coupon1" data-imgscale="0.64"></div>
+            <div class="coupon positive-one coupon2" data-imgscale="0.64"></div>
+            <div class="coupon positive-one coupon3" data-imgscale="0.64"></div>
+            <div class="coupon positive-two coupon5" data-imgscale="0.64"></div>
+            <div class="coupon positive-two coupon6" data-imgscale="0.64"></div>
+            <div class="coupon positive-two coupon7" data-imgscale="0.64"></div>
+            <div class="coupon positive-five coupon8" data-imgscale="0.64"></div>
+            <div class="coupon positive-five coupon9" data-imgscale="0.64"></div>
+            <div class="coupon negative-one coupon10" data-imgscale="0.64"></div>
+            <div class="coupon negative-two coupon11" data-imgscale="0.64"></div>
+            <div class="coupon negative-five coupon12" data-imgscale="0.64"></div>
+        </div>
+        <div class="load-bg hand animate" data-imgscale="1.54"></div>
+        <div id="loading" class="ui-circle-loading center">
+            <h2 class="center">正在加载</h2>
+            <ul class="animate">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="load-bg arrow-down" data-imgscale="3.7"></div>
+    </div>
+    <div class="page my-hide" id="result-page">
+        <div class="top-bg" data-imgscale="0.3">
+            <div class="clock" data-imgscale="1"></div>
+            <div class="progress"></div>
+            <span class="score-example">￥0</span>
+        </div>
+        <div class="bottom-bg">
+            <div class="bottom-back"  data-imgscale="0.572"></div>
+            <div class="bottom-chest" data-imgscale="0.487"></div>
+            <div class="small-p p-01" data-imgscale="1.1"></div>
+            <div class="small-p p-02" data-imgscale="1.19"></div>
+            <!-- <div class="bottom-text" data-imgscale="0.125"></div> -->
+        </div>
+        <div class="result-area fadeInTwo">
+            <div class="result-content">
+                <h3>好棒！</h3>
+                <p class="result-p">收集了 <span id="result-score">0</span> 元<span id="ticketName">现金券</span></p>
+                <p class="remain-time mt10 mb20" id="chance">还有<span>1</span>次领取机会</p>
+            </div>
+            <div id="result-btn-area" class="mb15">
+                <button class="btn btn-yellow btn-block" id="get-reward-btn" data-tpye="reward" data-isresultpage="false" data-score="1" data-chance="2" data-islogin="true" data-isclick="true">注册领取</button>
+                <p class="remain-time text-blue mt15 mb15 my-hide " id="has-account"><a href="#" style="text-decoration: underline;">我已有账户</a></p>
+            </div>
+            <div class="row">
+                <div class="column column-6">
+                    <button class="btn btn-default btn-block" id="replay-btn">再玩一次</button>
+                </div>
+                <div class="column column-6">
+                    <button class="btn btn-warning btn-block" id="share-btn">增加领钱机会</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-shadow">
+            <div class="share" data-imgscale="0.865">
+                <div id="close-modal" data-imgscale="0.39"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 加载页面 end -->
+    <!-- 游戏页面 start -->
+    <canvas id="game-canvas" style="display:none"></canvas>
+
+
+        
+    <div class="footer">
+    理财有风险 投资需谨慎<br>本活动规则解释权归PPmoney理财所有<br>如有疑问请联系在线客服或拨打10101212
+</div>
+<div class="share-wrap" id="shareBg" data-share-bg></div>
+
+        <script src="https://special.ppmoney.com/sensorsdata/sensorsdata_product.js"></script>
+        
+    <script src="https://special.ppmoney.com/sensorsdata/sensorsdata_product.js"></script>
+<script src="https://special.ppmoney.com/PPyog2/h5-common/client/static/lib/common_96326bd.js"></script>
+<script src="https://special.ppmoney.com/lib/promise.js"></script>
+<script src="https://special.ppmoney.com/PPyog2/h5-common/client/static/lib/iscroll-probe_1a069d8.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="https://special.ppmoney.com/PPyog2/h5-common/client/static/lib/pp-mobile/pp-mobile-1.4.0_9a38191.js"></script>
+<script src="https://special.ppmoney.com/lib/PP-JSSDK-latest.js"></script>
+
+
+    
+    <script type="text/javascript" src="https://special.ppmoney.com/PPyog2/h5-common/client/static/js/mod_75d1f98.js"></script><script type="text/javascript" src="https://special.ppmoney.com/PPyog2/h5-grabMoney/client/widget/pkgall_25e3027.js"></script></body>
+    <script>
+        //webview返回刷新
+        window.webviewOnShow = function (from) {
+            if (from == 1) {
+                window.location.href = window.location.href;
+            }
+        }
+        var Config = require('h5-grabMoney:widget/config')
+        /**
+        !function(){
+            if (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+                if(!Config.debug) { location.href = Config.redirect }
+            }
+        }();
+        */
+
+        require('h5-grabMoney:widget/entry/index')
+    </script>
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//pa.ppmoney.com/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', 2]);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Piwik Code -->
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan style='display:none' id='cnzz_stat_icon_1257400308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1257400308%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script src="https://cnt.ppmoney.com/weixin/GrabMoney/js/libs/preloadjs.min.js"></script>
+    <script src="https://cnt.ppmoney.com/weixin/GrabMoney/js/libs/easeljs.min.js"></script>
+    <script src="https://cnt.ppmoney.com/weixin/GrabMoney/js/libs/tweenjs.min.js"></script>
+    <script src="https://cnt.ppmoney.com/weixin/GrabMoney/js/libs/soundjs.min.js"></script>
+    <script src="https://m-static.ppmoney.com/Content/js/weixin-alert.js"></script>
+    <script src="https://cnt.ppmoney.com/weixin/GrabMoney/js/activityregister.js"></script>
+    <script type="text/javascript">
+        UtmRegStorage.set();
+    </script>
+</html>
